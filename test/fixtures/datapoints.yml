@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry: one
+  value: 1
+  time: 2018-10-22 15:09:46
+
+two:
+  entry: two
+  value: 1
+  time: 2018-10-22 15:09:46
