@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20181022190946) do
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
     t.string "location"
-    t.integer "duration"
-    t.datetime "began_at"
+    t.datetime "end_time"
+    t.datetime "start_time"
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20181022190946) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.string "token"
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", null: false
