@@ -8,7 +8,7 @@ class Datapoint < ApplicationRecord
   scope: :by_duration, -> { order(:duration) }
 
   def net_total
-    total = Datapoint.all.each { |a| a +=}
+    total = Datapoint.all.inject(0, &:+)
   end
 
 end
