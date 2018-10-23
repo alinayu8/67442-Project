@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 20181022190946) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
-    t.string "location"
+    t.float "longitude"
+    t.float "latitude"
     t.datetime "end_time"
     t.datetime "start_time"
     t.string "notes"
