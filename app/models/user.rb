@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
     # Validations
     # make sure required fields are present
-    validates_presence_of :email, :password_digest
+    validates_presence_of :email, :password_digest, :token
     validates :email, presence: true, uniqueness: { case_sensitive: false}
     validates_presence_of :password, :on => :create 
     validates_presence_of :password_confirmation, :on => :create 
