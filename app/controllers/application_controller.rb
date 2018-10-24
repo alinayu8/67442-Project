@@ -1,4 +1,3 @@
-module Api::V1
 class ApplicationController < ActionController::API
     include ActionController::HttpAuthentication::Basic::ControllerMethods
 
@@ -62,4 +61,3 @@ class ApplicationController < ActionController::API
         end
       end
   end
-end

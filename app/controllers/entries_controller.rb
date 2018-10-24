@@ -1,4 +1,3 @@
-module Api::V1
 class EntriesController < ApplicationController
     # Controller Code
   swagger_controller :entries, "Entry Management"

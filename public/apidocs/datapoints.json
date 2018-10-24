@@ -8,6 +8,15 @@
       "path": "/datapoints.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token=<token>",
+              "required": true
+            }
+          ],
           "summary": "Fetches all Datapoints",
           "notes": "This lists all the Datapoints",
           "nickname": "Datapoints#index",
@@ -19,8 +28,14 @@
       "path": "/datapoints.json",
       "operations": [
         {
-          "summary": "Creates a new Datapoint",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token=<token>",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "entry_id",
@@ -43,6 +58,7 @@
               "required": true
             }
           ],
+          "summary": "Creates a new Datapoint",
           "responseMessages": [
             {
               "code": 406,
@@ -59,9 +75,14 @@
       "path": "/datapoints/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Datapoint",
-          "notes": "This lists details of one datapoint",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token=<token>",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -70,6 +91,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Datapoint",
+          "notes": "This lists details of one datapoint",
           "responseMessages": [
             {
               "code": 404,
@@ -86,8 +109,14 @@
       "path": "/datapoints/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Datapoint",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token=<token>",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -117,6 +146,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Datapoint",
           "responseMessages": [
             {
               "code": 404,
@@ -138,7 +168,6 @@
       "path": "/datapoints/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Datapoint",
           "parameters": [
             {
               "paramType": "path",
@@ -148,6 +177,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Datapoint",
           "responseMessages": [
             {
               "code": 404,

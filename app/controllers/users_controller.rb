@@ -1,4 +1,3 @@
-module Api::V1
 class UsersController < ApplicationController
     # Controller Code
   swagger_controller :users, "User Management"
@@ -93,4 +92,4 @@ class UsersController < ApplicationController
     def user_params
       params.permit(:email, :password_digest, :token, :first_name, :last_name)
     end
-end
+  end

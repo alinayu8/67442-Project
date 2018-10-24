@@ -1,4 +1,3 @@
-module Api::V1
 class DatapointsController < ApplicationController
     # Controller Code
   swagger_controller :datapoints, "Datapoint Management"
