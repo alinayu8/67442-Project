@@ -142,6 +142,47 @@
               "type": "string",
               "description": "Authentication token in the format of: Token token=<token>",
               "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "first_name",
+              "type": "string",
+              "description": "First Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "last_name",
+              "type": "string",
+              "description": "Last Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "string",
+              "description": "Email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "password",
+              "type": "password",
+              "description": "Password",
+              "required": false
+            }
+          ],
+          "summary": "Updates an existing User",
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
             }
           ],
           "nickname": "Api::V1::Users#update",
@@ -154,6 +195,13 @@
       "operations": [
         {
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token=<token>",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",

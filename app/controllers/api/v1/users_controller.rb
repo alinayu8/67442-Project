@@ -35,6 +35,16 @@ class UsersController < ApplicationController
     response :not_acceptable
   end
 
+  swagger_api :update do
+    summary "Updates an existing User"
+    param :form, :first_name, :string, :optional, "First Name"
+    param :form, :last_name, :string, :optional, "Last Name"
+    param :form, :email, :string, :optional, "Email"
+    param :form, :password, :password, :optional, "Password"
+    response :not_found
+    response :not_acceptable
+  end
+
   # Lastly destroy is just like the rest and just takes in the param path for user id. 
   swagger_api :destroy do
     summary "Deletes an existing User"
@@ -65,6 +75,14 @@ class UsersController < ApplicationController
 
     if @user.save
       render json: @user, status: :created, location: [:v1, @user]
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
