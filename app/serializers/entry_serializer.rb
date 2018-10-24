@@ -1,3 +1,5 @@
 class EntrySerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :user_id, :start_time, :duration, :latitude, :longitude
+  has_many :datapoints
+  belongs_to :user
 end

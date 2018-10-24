@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     #has_secure_password
-    has_many :orders
+    has_many :entries
 
     # Validations
     # make sure required fields are present
