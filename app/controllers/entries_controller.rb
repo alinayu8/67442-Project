@@ -4,6 +4,7 @@ class EntriesController < ApplicationController
 
   swagger_api :index do
     summary "Fetches all Entries"
+    param :query, :alphabetical, :boolean, :optional, "Order entries by chronological"
     notes "This lists all the Entries"
   end
 
@@ -49,7 +50,9 @@ class EntriesController < ApplicationController
   # GET /entries
   def index
     @entries = Entry.all
-
+    if params[:chronological].present? && params[:chronological] == "true"
+      @users = @users.chronological
+    end
     render json: @entries
   end
 

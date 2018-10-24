@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :users
   resources :entries
   resources :datapoints
+  get 'token' => 'application#token', as: :token
 end

@@ -5,7 +5,7 @@
   "apis": [
     {
       "path": "/apidocs/users.{format}",
-      "description": "User Management"
+      "description": "Users Management"
     },
     {
       "path": "/apidocs/entries.{format}",
@@ -14,6 +14,10 @@
     {
       "path": "/apidocs/datapoints.{format}",
       "description": "Datapoint Management"
+    },
+    {
+      "path": "/apidocs/application.{format}",
+      "description": "Application Management"
     }
   ],
   "authorizations": null,
