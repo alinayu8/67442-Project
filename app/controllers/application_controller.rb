@@ -61,3 +61,7 @@ class ApplicationController < ActionController::API
         end
       end
   end
+<<<<<<< HEAD:app/controllers/application_controller.rb
+=======
+end
+>>>>>>> branch-merge:app/controllers/api/v1/application_controller.rb

@@ -4,8 +4,13 @@
 require 'factory_bot_rails'
 
 # Step 1: create some users
+<<<<<<< HEAD
 alina = FactoryBot.create(:user, first_name: "Alina", last_name: "Yu", password_digest: "secret", email: "alina@example.com", token: "lolooloo")
 shirley = FactoryBot.create(:user, first_name: "Shirley", last_name: "Zhou", password_digest: "secret", email: "shirleyzhou@example.com", token: "hellohellohello")
+=======
+alina = FactoryBot.create(:user, first_name: "Alina", last_name: "Yu")
+shirley = FactoryBot.create(:user, first_name: "Shirley", last_name: "Zhou", email: "shirleyzhou@example.com", api_key: "hellohellohello")
+>>>>>>> branch-merge
 
 # Step 2: create some entries
 alina_entry1 = FactoryBot.create(:entry, user: alina)

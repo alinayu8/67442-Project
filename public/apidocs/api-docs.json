@@ -4,16 +4,28 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+<<<<<<< HEAD
       "path": "/apidocs/users.{format}",
       "description": "User Management"
+=======
+      "path": "/apidocs/api/v1/users.{format}",
+      "description": "Users Management"
+>>>>>>> branch-merge
     },
     {
-      "path": "/apidocs/entries.{format}",
+      "path": "/apidocs/api/v1/entries.{format}",
       "description": "Entry Management"
     },
     {
-      "path": "/apidocs/datapoints.{format}",
+      "path": "/apidocs/api/v1/datapoints.{format}",
       "description": "Datapoint Management"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "path": "/apidocs/api/v1/application.{format}",
+      "description": "Application Management"
+>>>>>>> branch-merge
     }
   ],
   "authorizations": null,

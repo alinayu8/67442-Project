@@ -3,8 +3,9 @@ FactoryBot.define do
     factory :user do
       first_name "Alina"
       last_name "Yu"
-      password_digest "secret"
-      token "somenumbersandletters"
+      password "secret"
+      password_confirmation "secret"
+      api_key "somenumbersandletters"
       email "alinayu@example.com"
     end
   

@@ -87,3 +87,4 @@ class DatapointsController < ApplicationController
       params.permit(:entry_id, :value, :time)
     end
 end
+end
