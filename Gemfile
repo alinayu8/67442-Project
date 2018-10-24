@@ -27,6 +27,7 @@ gem 'rack-cors'
 gem 'swagger-docs'
 gem 'rack-attack'
 gem 'validates_timeliness'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,7 +41,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'factory_bot_rails'
-  gem 'active_model_serializers'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
