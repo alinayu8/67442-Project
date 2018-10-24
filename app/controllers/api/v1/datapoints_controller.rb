@@ -5,7 +5,6 @@ class DatapointsController < ApplicationController
 
   swagger_api :index do
     summary "Fetches all Datapoints"
-    param :query, :alphabetical, :boolean, :optional, "Order users by alphabetical"
     notes "This lists all the Datapoints"
   end
 

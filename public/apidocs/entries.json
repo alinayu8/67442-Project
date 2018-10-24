@@ -8,22 +8,6 @@
       "path": "/entries.json",
       "operations": [
         {
-          "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
-            {
-              "paramType": "query",
-              "name": "alphabetical",
-              "type": "boolean",
-              "description": "Order entries by chronological",
-              "required": false
-            }
-          ],
           "summary": "Fetches all Entries",
           "notes": "This lists all the Entries",
           "nickname": "Entries#index",
@@ -35,14 +19,8 @@
       "path": "/entries.json",
       "operations": [
         {
+          "summary": "Creates a new Entry",
           "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
             {
               "paramType": "form",
               "name": "user_id",
@@ -86,7 +64,6 @@
               "required": false
             }
           ],
-          "summary": "Creates a new Entry",
           "responseMessages": [
             {
               "code": 406,
@@ -103,14 +80,9 @@
       "path": "/entries/{id}.json",
       "operations": [
         {
+          "summary": "Shows one Entry",
+          "notes": "This lists details of one entry",
           "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -119,8 +91,6 @@
               "required": true
             }
           ],
-          "summary": "Shows one Entry",
-          "notes": "This lists details of one entry",
           "responseMessages": [
             {
               "code": 404,
@@ -137,14 +107,8 @@
       "path": "/entries/{id}.json",
       "operations": [
         {
+          "summary": "Updates an existing Entry",
           "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -195,7 +159,6 @@
               "required": false
             }
           ],
-          "summary": "Updates an existing Entry",
           "responseMessages": [
             {
               "code": 404,
@@ -217,6 +180,7 @@
       "path": "/entries/{id}.json",
       "operations": [
         {
+          "summary": "Deletes an existing Entry",
           "parameters": [
             {
               "paramType": "path",
@@ -226,7 +190,6 @@
               "required": true
             }
           ],
-          "summary": "Deletes an existing Entry",
           "responseMessages": [
             {
               "code": 404,

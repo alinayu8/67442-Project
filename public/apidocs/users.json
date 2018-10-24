@@ -8,22 +8,6 @@
       "path": "/users.json",
       "operations": [
         {
-          "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
-            {
-              "paramType": "query",
-              "name": "alphabetical",
-              "type": "boolean",
-              "description": "Order users by alphabetical",
-              "required": false
-            }
-          ],
           "summary": "Fetches all Users",
           "notes": "This lists all the users",
           "nickname": "Users#index",
@@ -35,26 +19,20 @@
       "path": "/users.json",
       "operations": [
         {
+          "summary": "Creates a new User",
           "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
             {
               "paramType": "form",
               "name": "first_name",
               "type": "string",
-              "description": "First Name",
+              "description": "First name",
               "required": true
             },
             {
               "paramType": "form",
               "name": "last_name",
               "type": "string",
-              "description": "Last Name",
+              "description": "Last name",
               "required": true
             },
             {
@@ -66,20 +44,19 @@
             },
             {
               "paramType": "form",
-              "name": "password",
-              "type": "password",
+              "name": "password_digest",
+              "type": "string",
               "description": "Password",
               "required": true
             },
             {
               "paramType": "form",
-              "name": "password_confirmation",
-              "type": "password",
-              "description": "Password Confirmation",
-              "required": true
+              "name": "token",
+              "type": "string",
+              "description": "Token",
+              "required": false
             }
           ],
-          "summary": "Creates a new User",
           "responseMessages": [
             {
               "code": 406,
@@ -96,14 +73,9 @@
       "path": "/users/{id}.json",
       "operations": [
         {
+          "summary": "Shows one User",
+          "notes": "This lists details of one user",
           "parameters": [
-            {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -112,18 +84,11 @@
               "required": true
             }
           ],
-          "summary": "Shows one User",
-          "notes": "This lists details of one user",
           "responseMessages": [
             {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Not Acceptable"
             }
           ],
           "nickname": "Users#show",
@@ -135,13 +100,54 @@
       "path": "/users/{id}.json",
       "operations": [
         {
+          "summary": "Updates an existing User",
           "parameters": [
             {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token in the format of: Token token=<token>",
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User Id",
               "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "last_name",
+              "type": "string",
+              "description": "Last name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "string",
+              "description": "Email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "password_digest",
+              "type": "string",
+              "description": "Password",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "Token",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
             }
           ],
           "nickname": "Users#update",
@@ -153,6 +159,7 @@
       "path": "/users/{id}.json",
       "operations": [
         {
+          "summary": "Deletes an existing User",
           "parameters": [
             {
               "paramType": "path",
@@ -162,17 +169,11 @@
               "required": true
             }
           ],
-          "summary": "Deletes an existing User",
           "responseMessages": [
             {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Not Acceptable"
             }
           ],
           "nickname": "Users#destroy",

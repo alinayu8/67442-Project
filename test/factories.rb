@@ -4,7 +4,7 @@ FactoryBot.define do
       first_name "Alina"
       last_name "Yu"
       password_digest "secret"
-      api_key "somenumbersandletters"
+      token "somenumbersandletters"
       email "alinayu@example.com"
     end
   
@@ -13,8 +13,8 @@ FactoryBot.define do
       association :user
       longitude -79.943016
       latitude 40.442806
-      start_time DateTime.now.utc - 1.day - 1.hour
-      end_time DateTime.now.utc - 1.day
+      end_time Date.current - 1.day
+      start_time Date.current - 1.day - 1.hour
       notes "I did not sleep enough"
     end
   
@@ -22,6 +22,6 @@ FactoryBot.define do
     factory :datapoint do
       association :entry
       value -1
-      time DateTime.now.utc - 1.day - 1.hour + 1.minute
+      time Date.current - 1.day + 1.minute
     end
   end

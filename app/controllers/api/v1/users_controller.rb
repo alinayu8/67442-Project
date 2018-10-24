@@ -1,56 +1,55 @@
 module Api::V1
 class UsersController < ApplicationController
-  # This is to tell the gem that this controller is an API
-  swagger_controller :users, "Users Management"
+    # Controller Code
+  swagger_controller :users, "User Management"
 
-  # Each API endpoint index, show, create, etc. has to have one of these descriptions
-
-  # This one is for the index action. The notes param is optional but helps describe what the index endpoint does
   swagger_api :index do
     summary "Fetches all Users"
-    param :query, :alphabetical, :boolean, :optional, "Order users by alphabetical"
     notes "This lists all the users"
   end
 
-  # Show needs a param which is which user id to show.
-  # The param defines that it is in the path, and that it is the User's ID
-  # The response params here define what type of error responses can be returned back to the user from your API. In this case, the error responses are 404 not_found and not_acceptable.
   swagger_api :show do
     summary "Shows one User"
     param :path, :id, :integer, :required, "User ID"
     notes "This lists details of one user"
     response :not_found
-    response :not_acceptable
   end
 
-  # Create doesn't take in the user id, but rather the required fields for a user (namely first_name and last_name)
-  # Instead of a path param, this uses form params and defines them as required
   swagger_api :create do
     summary "Creates a new User"
-    param :form, :first_name, :string, :required, "First Name"
-    param :form, :last_name, :string, :required, "Last Name"
+    param :form, :first_name, :string, :required, "First name"
+    param :form, :last_name, :string, :required, "Last name"
     param :form, :email, :string, :required, "Email"
-    param :form, :password, :password, :required, "Password"
-    param :form, :password_confirmation, :password, :required, "Password Confirmation"
+    param :form, :password_digest, :string, :required, "Password"
+    param :form, :token, :string, :optional, "Token"
     response :not_acceptable
   end
 
-  # Lastly destroy is just like the rest and just takes in the param path for user id. 
-  swagger_api :destroy do
-    summary "Deletes an existing User"
+  swagger_api :update do
+    summary "Updates an existing User"
     param :path, :id, :integer, :required, "User Id"
+    param :form, :last_name, :string, :optional, "Last name"
+    param :form, :email, :string, :optional, "Email"
+    param :form, :password_digest, :string, :optional, "Password"
+    param :form, :token, :string, :optional, "Token"
     response :not_found
     response :not_acceptable
   end
 
-  # Controller Code
+  swagger_api :destroy do
+    summary "Deletes an existing User"
+    param :path, :id, :integer, :required, "User Id"
+    response :not_found
+  end
 
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
   def index
     @users = User.all
-
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @children = @children.alphabetical
+    end
     render json: @users
   end
 
@@ -70,6 +69,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # PATCH/PUT /users/1
+  def update
+    if @user.update(user_params)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
   # DELETE /users/1
   def destroy
     @user.destroy
@@ -83,6 +91,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.permit(:email, :password, :password_confirmation, :first_name, :last_name)
+      params.permit(:email, :password_digest, :token, :first_name, :last_name)
     end
 end
