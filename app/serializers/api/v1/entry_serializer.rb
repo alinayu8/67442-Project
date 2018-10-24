@@ -4,3 +4,4 @@ class EntrySerializer < ActiveModel::Serializer
   has_many :datapoints
   belongs_to :user
 end
+end
