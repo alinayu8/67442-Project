@@ -177,6 +177,13 @@
         {
           "parameters": [
             {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token=<token>",
+              "required": true
+            },
+            {
               "paramType": "path",
               "name": "id",
               "type": "integer",
