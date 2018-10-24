@@ -145,6 +145,13 @@
             },
             {
               "paramType": "form",
+              "name": "entry_id",
+              "type": "integer",
+              "description": "User",
+              "required": true
+            },
+            {
+              "paramType": "form",
               "name": "first_name",
               "type": "string",
               "description": "First Name",
