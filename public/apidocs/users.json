@@ -1,0 +1,186 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "users",
+  "apis": [
+    {
+      "path": "/users.json",
+      "operations": [
+        {
+          "summary": "Fetches all Users",
+          "notes": "This lists all the users",
+          "nickname": "Users#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/users.json",
+      "operations": [
+        {
+          "summary": "Creates a new User",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "first_name",
+              "type": "string",
+              "description": "First name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "last_name",
+              "type": "string",
+              "description": "Last name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "string",
+              "description": "Email",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "password_digest",
+              "type": "string",
+              "description": "Password",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "Token",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Users#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "summary": "Shows one User",
+          "notes": "This lists details of one user",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User ID",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Users#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "summary": "Updates an existing User",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "last_name",
+              "type": "string",
+              "description": "Last name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "type": "string",
+              "description": "Email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "password_digest",
+              "type": "string",
+              "description": "Password",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "Token",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Users#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "summary": "Deletes an existing User",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Users#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

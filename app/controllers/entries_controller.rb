@@ -1,7 +1,50 @@
 class EntriesController < ApplicationController
     # Controller Code
+  swagger_controller :entries, "Entry Management"
 
-  before_action :set_user, only: [:show, :update, :destroy]
+  swagger_api :index do
+    summary "Fetches all Entries"
+    notes "This lists all the Entries"
+  end
+
+  swagger_api :show do
+    summary "Shows one Entry"
+    param :path, :id, :integer, :required, "Entry ID"
+    notes "This lists details of one entry"
+    response :not_found
+  end
+
+  swagger_api :create do
+    summary "Creates a new Entry"
+    param :form, :user_id, :integer, :required, "User"
+    param :form, :longitude, :string, :required, "Longitude"
+    param :form, :latitude, :string, :required, "Latitude"
+    param :form, :start_time, :string, :required, "Start time"
+    param :form, :end_time, :string, :required, "End time"
+    param :form, :notes, :string, :optional, "Notes"
+    response :not_acceptable
+  end
+
+  swagger_api :update do
+    summary "Updates an existing Entry"
+    param :path, :id, :integer, :required, "Entry Id"
+    param :form, :user_id, :integer, :optional, "User"
+    param :form, :longitude, :float, :optional, "Longitude"
+    param :form, :latitude, :float, :optional, "Latitude"
+    param :form, :start_time, :datetime, :optional, "Start time"
+    param :form, :end_time, :datetime, :optional, "End time"
+    param :form, :notes, :string, :optional, "Notes"
+    response :not_found
+    response :not_acceptable
+  end
+
+  swagger_api :destroy do
+    summary "Deletes an existing Entry"
+    param :path, :id, :integer, :required, "Entry Id"
+    response :not_found
+  end
+
+  before_action :set_entry, only: [:show, :update, :destroy]
 
   # GET /entries
   def index
@@ -43,7 +86,7 @@ class EntriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
-      @entry = entry.find(params[:id])
+      @entry = Entry.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

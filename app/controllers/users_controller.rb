@@ -1,5 +1,45 @@
 class UsersController < ApplicationController
     # Controller Code
+  swagger_controller :users, "User Management"
+
+  swagger_api :index do
+    summary "Fetches all Users"
+    notes "This lists all the users"
+  end
+
+  swagger_api :show do
+    summary "Shows one User"
+    param :path, :id, :integer, :required, "User ID"
+    notes "This lists details of one user"
+    response :not_found
+  end
+
+  swagger_api :create do
+    summary "Creates a new User"
+    param :form, :first_name, :string, :required, "First name"
+    param :form, :last_name, :string, :required, "Last name"
+    param :form, :email, :string, :required, "Email"
+    param :form, :password_digest, :string, :required, "Password"
+    param :form, :token, :string, :optional, "Token"
+    response :not_acceptable
+  end
+
+  swagger_api :update do
+    summary "Updates an existing User"
+    param :path, :id, :integer, :required, "User Id"
+    param :form, :last_name, :string, :optional, "Last name"
+    param :form, :email, :string, :optional, "Email"
+    param :form, :password_digest, :string, :optional, "Password"
+    param :form, :token, :string, :optional, "Token"
+    response :not_found
+    response :not_acceptable
+  end
+
+  swagger_api :destroy do
+    summary "Deletes an existing User"
+    param :path, :id, :integer, :required, "User Id"
+    response :not_found
+  end
 
   before_action :set_user, only: [:show, :update, :destroy]
 
@@ -43,7 +83,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = user.find(params[:id])
+      @user = User.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

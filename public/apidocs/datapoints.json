@@ -1,0 +1,165 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "datapoints",
+  "apis": [
+    {
+      "path": "/datapoints.json",
+      "operations": [
+        {
+          "summary": "Fetches all Datapoints",
+          "notes": "This lists all the Datapoints",
+          "nickname": "Datapoints#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/datapoints.json",
+      "operations": [
+        {
+          "summary": "Creates a new Datapoint",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "entry_id",
+              "type": "integer",
+              "description": "Entry",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "value",
+              "type": "integer",
+              "description": "Value",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "time",
+              "type": "datetime",
+              "description": "Time",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Datapoints#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/datapoints/{id}.json",
+      "operations": [
+        {
+          "summary": "Shows one Datapoint",
+          "notes": "This lists details of one datapoint",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Datapoint ID",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Datapoints#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/datapoints/{id}.json",
+      "operations": [
+        {
+          "summary": "Updates an existing Datapoint",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Datapoint Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "entry_id",
+              "type": "integer",
+              "description": "Entry",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "value",
+              "type": "integer",
+              "description": "Value",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "time",
+              "type": "datetime",
+              "description": "Time",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Datapoints#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/datapoints/{id}.json",
+      "operations": [
+        {
+          "summary": "Deletes an existing Datapoint",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Datapoint Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Datapoints#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}
