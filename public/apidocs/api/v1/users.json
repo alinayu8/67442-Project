@@ -144,10 +144,10 @@
               "required": true
             },
             {
-              "paramType": "form",
-              "name": "user_id",
+              "paramType": "path",
+              "name": "id",
               "type": "integer",
-              "description": "User",
+              "description": "User Id",
               "required": true
             },
             {
