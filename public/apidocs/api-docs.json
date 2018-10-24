@@ -4,19 +4,19 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/apidocs/users.{format}",
+      "path": "/apidocs/api/v1/users.{format}",
       "description": "Users Management"
     },
     {
-      "path": "/apidocs/entries.{format}",
+      "path": "/apidocs/api/v1/entries.{format}",
       "description": "Entry Management"
     },
     {
-      "path": "/apidocs/datapoints.{format}",
+      "path": "/apidocs/api/v1/datapoints.{format}",
       "description": "Datapoint Management"
     },
     {
-      "path": "/apidocs/application.{format}",
+      "path": "/apidocs/api/v1/application.{format}",
       "description": "Application Management"
     }
   ],

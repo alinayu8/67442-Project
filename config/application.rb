@@ -36,5 +36,6 @@ module LighthouseAPI
         resource '*', :headers => :any, :methods => [:get, :post, :put]
       end
     end
+    config.middleware.use Rack::Attack
   end
 end

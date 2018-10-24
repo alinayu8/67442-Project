@@ -98,3 +98,4 @@ class EntriesController < ApplicationController
       params.permit(:user_id, :longitude, :latitude, :end_time, :start_time, :notes)
     end
 end
+end
