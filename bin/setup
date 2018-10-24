@@ -1,6 +1,15 @@
 #!/usr/bin/env ruby
-require 'pathname'
-require 'fileutils'
+begin
+  require 'pathname'
+rescue LoadError => e
+  raise e unless ENV['RAILS_ENV'] == "production"
+end
+
+begin
+  require 'fileutils'
+rescue LoadError => e
+  raise e unless ENV['RAILS_ENV'] == "production"
+end
 include FileUtils
 
 # path to your application root.

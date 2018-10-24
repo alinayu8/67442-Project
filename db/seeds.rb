@@ -1,7 +1,11 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-require 'factory_bot_rails'
+begin
+    require "factory_bot_rails"
+  rescue LoadError => e
+    raise e unless ENV['RAILS_ENV'] == "production"
+  end
 
 # Step 1: create some users
 alina = FactoryBot.create(:user, first_name: "Alina", last_name: "Yu")

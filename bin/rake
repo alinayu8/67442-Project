@@ -5,5 +5,11 @@ rescue LoadError => e
   raise unless e.message.include?('spring')
 end
 require_relative '../config/boot'
-require 'rake'
+
+begin
+  require 'rake'
+rescue LoadError => e
+  raise e unless ENV['RAILS_ENV'] == "production"
+end
+
 Rake.application.run

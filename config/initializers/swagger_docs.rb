@@ -1,4 +1,5 @@
 # config/initializers/swagger_docs.rb
+require 'swagger/docs/config'
 
 class Swagger::Docs::Config
     def self.transform_path(path, api_version)
