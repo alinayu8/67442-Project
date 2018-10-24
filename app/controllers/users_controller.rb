@@ -46,7 +46,9 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @children = @children.alphabetical
+    end
     render json: @users
   end
 

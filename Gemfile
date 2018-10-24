@@ -39,6 +39,7 @@ group :development do
   gem 'factory_bot_rails'
   gem 'swagger-docs'
   gem 'active_model_serializers'
+  gem 'rack-cors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
