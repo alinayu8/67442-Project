@@ -1,3 +1,4 @@
+module Api::V1
 class EntriesController < ApplicationController
     # Controller Code
   swagger_controller :entries, "Entry Management"
@@ -66,7 +67,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      render json: @entry, status: :created, location: @entry
+      render json: @entry, status: :created, location: [:v1, @entry]
     else
       render json: @entry.errors, status: :unprocessable_entity
     end

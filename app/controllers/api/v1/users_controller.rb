@@ -1,3 +1,4 @@
+module Api::V1
 class UsersController < ApplicationController
   # This is to tell the gem that this controller is an API
   swagger_controller :users, "Users Management"
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created, location: [:v1, @user]
     else
       render json: @user.errors, status: :unprocessable_entity
     end

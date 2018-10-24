@@ -1,3 +1,4 @@
+module Api::V1
 class DatapointsController < ApplicationController
     # Controller Code
   swagger_controller :datapoints, "Datapoint Management"
@@ -57,7 +58,7 @@ class DatapointsController < ApplicationController
     @datapoint = Datapoint.new(datapoint_params)
 
     if @datapoint.save
-      render json: @datapoint, status: :created, location: @datapoint
+      render json: @datapoint, status: :created, location: [:v1, @datapoint]
     else
       render json: @datapoint.errors, status: :unprocessable_entity
     end
